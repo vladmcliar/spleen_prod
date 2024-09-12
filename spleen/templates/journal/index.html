@@ -1,0 +1,51 @@
+{% extends "journal/base.html" %}
+
+{% block title %}
+Записи Дневника
+{% endblock %}
+
+{% block content %}
+<div class="container">
+{% if request.user.is_authenticated %}
+    <h2>Как ты себя чувствуешь</h2>
+    <div class="day-card add-card">
+        <a href="{% url 'emotion_create' %}" class="btn">+ Добавить новую эмоцию</a>
+    </div>
+    <div class="spacer"></div>
+    
+    {% for day, entries in grouped_entries.items %}
+        <div class="day-card">
+            <h3>
+            {% if day == today %}
+                Сегодня
+            {% elif day == yesterday %}
+                Вчера
+            {% elif day == two_days_ago %}
+                Позавчера
+            {% else %}
+                {{ day|date:"d.m.Y" }}
+            {% endif %}
+            </h3>
+            <div class="emotions-container">
+                {% for entry in entries %}
+                <div class="emotion-card {{ entry.emotion }}">
+                    <div class="emotion-icon">{{ entry.emotion }}</div>
+                    <p>{{ entry.description }}</p>
+                    <p>
+                    {% if request.user == entry.user %}
+                        <a href="{% url 'emotion_update' entry.pk %}" class="btn-edit">Редактировать</a>
+                        <a href="{% url 'emotion_delete' entry.pk %}" class="btn-delete">Удалить</a>
+                    {% endif %}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="spacer"></div>
+    {% endfor %}
+{% else %}
+    <p>Зарегистрируйтесь, чтобы начать контролировать свои эмоции</p>
+    <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Вход</a>
+{% endif %}
+</div>
+{% endblock %}

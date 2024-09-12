@@ -1,0 +1,298 @@
+/* Основные стили для светлой и темной тем */
+:root {
+    --main-bg: #fff;
+    --heading-color: #4d4d4d;
+    --card-bg: #fff;
+    --card-text-color: #333;
+    --footer-bg: #88ccf1;
+    --footer-color: #333;
+    --footer-border-color: #7bb9e4;
+    --emotion-card-bg: #eef6ff;
+    --emotion-card-text-color: #333;
+    --btn-bg: #88ccf1;
+    --btn-color: #fff;
+    --btn-hover-bg: #7bb9e4;
+
+    /* Переменные для темной темы */
+    --dark-container-bg: #444;
+    --dark-container-border-color: #444;
+    --dark-main-bg: #2c2c2c;
+    --dark-heading-color: #ccc;
+    --dark-card-bg: #444;
+    --dark-card-text-color: #ccc;
+    --dark-footer-bg: #333;
+    --dark-footer-color: #ccc;
+    --dark-footer-border-color: #444;
+    --dark-emotion-card-bg: #555;
+    --dark-emotion-card-text-color: #ccc;
+}
+
+body.light-mode {
+    background-color: var(--main-bg);
+    color: var(--heading-color);
+}
+
+body.dark-mode {
+    background-color: var(--dark-main-bg);
+    color: var(--dark-heading-color);
+}
+
+.header {
+    background-color: var(--footer-bg);
+    color: var(--footer-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; /* Отступы для header */
+}
+
+.header.dark-mode {
+    background-color: var(--dark-footer-bg);
+    color: var(--dark-footer-color);
+}
+
+.header .app-title {
+    margin: 0;
+    text-align: center;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links ul li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-links ul li a,
+.nav-links ul li button {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 10px 15px;
+    margin: 0;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links ul li a:hover,
+.nav-links ul li button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 20px;
+    background-color: var(--main-bg);
+    color: var(--heading-color);
+    margin: 20px auto;
+    max-width: 1200px; /* Увеличим ширину */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex: 1;
+    width: 100%; /* Заставить main занимать всю ширину */
+}
+
+h1, h2 {
+    color: var(--heading-color);
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-color);
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid var(--footer-border-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.day-card {
+    background-color: var(--card-bg);
+    color: var(--card-text-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.day-card h3 {
+    margin-top: 0;
+}
+
+.emotions-container {
+    display: flex; /* Flex для расположения карточек эмоций */
+    flex-wrap: wrap; /* Позволяет переносить карточки на новую строку */
+    gap: 10px; /* Отступы между карточками */
+}
+
+.emotion-card {
+    background-color: var(--emotion-card-bg);
+    color: var(--emotion-card-text-color);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33% - 10px); /* Три карточки в строке с отступами */
+    min-width: 220px;
+    box-sizing: border-box;
+}
+
+.add-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--emotion-card-bg);
+}
+
+.add-card .btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-card .btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+.btn-edit, 
+.btn-delete {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #6ccbea;
+}
+
+.btn-edit:hover {
+    background-color: #2fb9df;
+}
+
+.btn-delete {
+    background-color: #f29494;
+}
+
+.btn-delete:hover {
+    background-color: #eb7b77;
+}
+
+.spacer {
+    height: 20px; /* Высота разрыва */
+}
+
+/* Стиль для анимаций уведомлений */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #88ccf1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: showNotification 0.5s forwards;
+}
+
+/* Темная тема для элементов */
+body.dark-mode .container {
+    background-color: var(--dark-container-bg);
+    color: var(--dark-card-text-color);
+    border-top: 0px solid var(--dark-footer-border-color);
+}
+
+body.dark-mode .day-card {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-card-text-color);
+}
+
+body.dark-mode .emotion-card {
+    background-color: var(--dark-emotion-card-bg);
+    color: var(--dark-emotion-card-text-color);
+}
+
+body.dark-mode footer {
+    background-color: var(--dark-footer-bg);
+    color: var(--dark-footer-color);
+    border-top: 1px solid var(--dark-footer-border-color);
+}
+
+body.dark-mode .header {
+    background-color: var(--dark-footer-bg);
+    color: var(--dark-footer-color);
+}
+
+body.dark-mode .nav-links ul li a,
+body.dark-mode .nav-links ul li button {
+    color: var(--dark-footer-color);
+}
+
+body.dark-mode .btn-edit {
+    background-color: #6ccbea;
+}
+
+body.dark-mode .btn-edit:hover {
+    background-color: #2fb9df;
+}
+
+body.dark-mode .btn-delete {
+    background-color: #f29494;
+}
+
+body.dark-mode .btn-delete:hover {
+    background-color: #eb7b77;
+}
+
+@keyframes showNotification {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

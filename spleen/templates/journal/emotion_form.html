@@ -1,0 +1,15 @@
+{% extends "journal/base.html" %}
+
+{% block title %}
+{% if is_new %}Создать эмоцию{% else %}Редактировать эмоцию{% endif %}
+{% endblock %}
+
+{% block content %}
+<h2>{% if is_new %}Создать эмоцию{% else %}Редактировать эмоцию{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if is_new %}Создать{% else %}Обновить{% endif %}</button>
+</form>
+<a href="{% url 'index' %}">Назад ко всем эмоциям</a>
+{% endblock %}

@@ -1,0 +1,6 @@
+Django==3.2
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.8.0
+django-cors-headers==3.10.1
+pandas==1.4.0  # Указываем примерную версию, проверьте актуальную версию на момент установки.
+plotly==5.3.1
